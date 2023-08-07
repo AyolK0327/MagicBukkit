@@ -1,0 +1,4 @@
+name: MagicBukkit
+version: '${project.version}'
+main: cn.originmc.plugins.magicbukkit.MagicBukkit
+api-version: '1.13'

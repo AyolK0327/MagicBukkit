@@ -1,0 +1,5 @@
+triggers: a
+magicWords:
+  - a
+  - b
+  - c
