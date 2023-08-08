@@ -1,5 +1,4 @@
-triggers: a
+triggers: join
 magicWords:
-  - a
-  - b
-  - c
+  - var(message str("Hello World!"))
+  - print(message)

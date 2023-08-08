@@ -16,6 +16,5 @@ public class PlayerListener implements Listener {
         objectMap.put("player",event.getPlayer());
         variableMap.put("action",event.getAction().name());
         objectMap.put("block",event.getClickedBlock());
-
     }
 }
