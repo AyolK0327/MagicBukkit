@@ -77,7 +77,7 @@
         <dependency>
             <groupId>cn.origincraft.magic</groupId>
             <artifactId>Magic</artifactId>
-            <version>1.0.1a</version>
+            <version>1.0.1b</version>
         </dependency>
         <dependency>
             <groupId>cn.originmc.tools.minecraft</groupId>

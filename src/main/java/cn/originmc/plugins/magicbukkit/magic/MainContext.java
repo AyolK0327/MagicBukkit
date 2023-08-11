@@ -13,7 +13,6 @@ public class MainContext implements ContextMap {
         mainVariableMap=new HashMap<>();
     }
 
-
     public static Map<String, Object> getMainObjectMap() {
         return mainObjectMap;
     }
