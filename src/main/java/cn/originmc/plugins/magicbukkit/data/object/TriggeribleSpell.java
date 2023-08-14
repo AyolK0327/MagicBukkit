@@ -1,7 +1,9 @@
 package cn.originmc.plugins.magicbukkit.data.object;
 
+import cn.origincraft.magic.object.ContextMap;
 import cn.origincraft.magic.object.Spell;
 import cn.originmc.plugins.magicbukkit.MagicBukkit;
+import cn.originmc.plugins.magicbukkit.magic.MainContext;
 
 import java.util.List;
 import java.util.Map;
@@ -39,11 +41,11 @@ public class TriggeribleSpell {
         this.magicWords = magicWords;
     }
 
-    public boolean execute(Map<String, Object> objectMap,Map<String, Object> variableMap) {
+    public boolean execute(ContextMap contextMap) {
         if (magicWords != null) {
             if (!magicWords.isEmpty()) {
                 Spell spell = new Spell(magicWords, MagicBukkit.getMagicManager());
-                spell.execute(objectMap, variableMap);
+                spell.execute(contextMap);
                 return true;
             }
         }

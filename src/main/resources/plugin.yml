@@ -2,3 +2,14 @@ name: MagicBukkit
 version: '${project.version}'
 main: cn.originmc.plugins.magicbukkit.MagicBukkit
 api-version: '1.13'
+commands:
+    magicbukkit:
+        description: MagicBukkit command
+        usage: /<command> [reload]
+        aliases:
+        - mb
+        - mbukkit
+        - magicb
+        - magic
+        permission: magicbukkit.command
+        permission-message: You do not have permission to use this command.

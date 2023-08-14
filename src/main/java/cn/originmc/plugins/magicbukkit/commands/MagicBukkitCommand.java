@@ -1,8 +1,10 @@
 package cn.originmc.plugins.magicbukkit.commands;
 
+import cn.origincraft.magic.object.ContextMap;
 import cn.originmc.plugins.magicbukkit.MagicBukkit;
 import cn.originmc.plugins.magicbukkit.data.SpellData;
 import cn.originmc.plugins.magicbukkit.data.object.TriggeribleSpell;
+import cn.originmc.plugins.magicbukkit.magic.MainContext;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -40,13 +42,13 @@ public class MagicBukkitCommand implements CommandExecutor {
                 sender.sendMessage("§c§lMagicBukkit §7- §fThe spell §c"+args[1]+" §fdoes not exist.");
                 return true;
             }
-            Map<String , Object> objectMap=new HashMap<>();
+            MainContext mainContext=new MainContext();
             if (sender instanceof Player){
-                objectMap.put("player",(Player)sender);
+                mainContext.putObject("player",sender);
             }else {
-                objectMap.put("sender",sender);
+                mainContext.putObject("sender",sender);
             }
-            spell.execute(objectMap,new HashMap<>());
+            spell.execute(new MainContext());
             return true;
         }
         return true;

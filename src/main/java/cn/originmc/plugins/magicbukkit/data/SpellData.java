@@ -5,12 +5,14 @@ import cn.originmc.plugins.magicbukkit.data.object.TriggeribleSpell;
 import cn.originmc.tools.minecraft.yamlcore.object.YamlElement;
 import cn.originmc.tools.minecraft.yamlcore.object.YamlManager;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class SpellData {
     private static YamlManager yamlManager;
-    private static List<TriggeribleSpell> spells;
+    private static List<TriggeribleSpell> spells=new ArrayList<>();
     public static void load() {
+        spells.clear();
         yamlManager = new YamlManager(MagicBukkit.getInstance(),"spells",true);
         for (YamlElement yamlElement : yamlManager.getYamlElements()) {
             TriggeribleSpell triggeribleSpell = new TriggeribleSpell();

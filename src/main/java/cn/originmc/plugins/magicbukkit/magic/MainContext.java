@@ -2,60 +2,60 @@ package cn.originmc.plugins.magicbukkit.magic;
 
 import cn.origincraft.magic.object.ContextMap;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class MainContext implements ContextMap {
-    private static Map<String,Object> mainObjectMap;
-    private static Map<String,Object> mainVariableMap;
+    private static ConcurrentHashMap<String, Object> mainObjectMap;
+    private static ConcurrentHashMap<String, Object> mainVariableMap;
     public static void init(){
-        mainObjectMap=new HashMap<>();
-        mainVariableMap=new HashMap<>();
+        mainObjectMap=new ConcurrentHashMap<>();
+        mainVariableMap=new ConcurrentHashMap<>();
     }
 
-    public static Map<String, Object> getMainObjectMap() {
+
+    public static ConcurrentHashMap<String, Object> getMainObjectMap() {
         return mainObjectMap;
     }
 
-    public static void setMainObjectMap(Map<String, Object> mainObjectMap) {
+    public static void setMainObjectMap(ConcurrentHashMap<String, Object> mainObjectMap) {
         MainContext.mainObjectMap = mainObjectMap;
     }
 
-    public static Map<String, Object> getMainVariableMap() {
+    public static ConcurrentHashMap<String, Object> getMainVariableMap() {
         return mainVariableMap;
     }
 
-    public static void setMainVariableMap(Map<String, Object> mainVariableMap) {
+    public static void setMainVariableMap(ConcurrentHashMap<String, Object> mainVariableMap) {
         MainContext.mainVariableMap = mainVariableMap;
     }
 
     @Override
-    public Map<String, Object> getObjectMap() {
-        return getMainObjectMap();
+    public ConcurrentHashMap<String, Object> getObjectMap() {
+        return mainObjectMap;
     }
 
     @Override
-    public Map<String, Object> getVariableMap() {
-        return getMainVariableMap();
+    public ConcurrentHashMap<String, Object> getVariableMap() {
+        return mainVariableMap;
     }
 
     @Override
     public void putObject(String s, Object o) {
-        getMainObjectMap().put(s,o);
+        mainObjectMap.put(s,o);
     }
 
     @Override
     public void putVariable(String s, Object o) {
-        getMainVariableMap().put(s,o);
+        mainVariableMap.put(s,o);
     }
 
     @Override
-    public void setObjectMap(Map<String, Object> map) {
-        setMainObjectMap(map);
+    public void setObjectMap(ConcurrentHashMap<String, Object> concurrentHashMap) {
+        setMainObjectMap(concurrentHashMap);
     }
 
     @Override
-    public void setVariableMap(Map<String, Object> map) {
-        setMainVariableMap(map);
+    public void setVariableMap(ConcurrentHashMap<String, Object> concurrentHashMap) {
+        setMainVariableMap(concurrentHashMap);
     }
 }
